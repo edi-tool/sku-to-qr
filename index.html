@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>東洋館出版社 - 書籍QRコード生成ツール（印刷用）</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.4.4/qrcode.min.js"></script>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
@@ -67,7 +67,7 @@
             display: flex;
             justify-content: center;
         }
-        /* 画面表示用のサイズ調整（実際の画像データはもっと大きいです） */
+        /* 画面表示用のサイズ調整（実際の画像データは大きいです） */
         #qrcode-container img {
             width: 200px;
             height: 200px;
@@ -127,9 +127,9 @@
 
             // 印刷用QRコードの設定
             const opts = {
-                errorCorrectionLevel: 'H', // 誤り訂正レベル最高（一部が隠れても読み取れる）
+                errorCorrectionLevel: 'H', // 誤り訂正レベル最高
                 margin: 1,                 // 周辺の余白を1ブロック分に指定
-                scale: 40,                 // 生成される画像のピクセル数を極端に大きくする（350dpiでの印刷に耐えるため）
+                scale: 40,                 // 生成される画像のピクセル数を極端に大きくする
                 color: {
                     dark: '#000000',       // モノクロ2階調（黒）
                     light: '#ffffff'       // モノクロ2階調（白）
