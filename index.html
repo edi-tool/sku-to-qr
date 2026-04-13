@@ -144,6 +144,7 @@
             height: 200px;
             border: 1px solid #e0e0e0;
             border-radius: 4px;
+            background-color: #fff; /* 透過を防ぐために背景白を指定 */
         }
 
         .url-display {
@@ -225,12 +226,12 @@
 
             // 印刷用QRコードの設定
             const opts = {
-                errorCorrectionLevel: 'H', 
-                margin: 1,                 
-                scale: 40,                 
+                errorCorrectionLevel: 'H', // 誤り訂正レベル最高
+                margin: 4,                 // ★周辺の余白を標準規格の4ブロック分に変更
+                scale: 40,                 // 生成される画像のピクセル数を極端に大きくする
                 color: {
-                    dark: '#000000',       
-                    light: '#ffffff'       
+                    dark: '#000000',       // モノクロ2階調（黒）
+                    light: '#ffffff'       // モノクロ2階調（白）
                 }
             };
 
