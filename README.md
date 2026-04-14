@@ -9,7 +9,7 @@ https://edi-tool.github.io/sku-to-qr/
 **GitHub Pages** でホストされており、スマホやタブレットのブラウザから直接利用できます。
 （機密情報など含まないので公開していますが、）社内での利用を想定しています。
 
-### 使用技術
+## 使用技術
 - **node-qrcode**:
  
 ## 参考文献 / References
