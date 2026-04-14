@@ -31,7 +31,7 @@ https://edi-tool.github.io/sku-to-qr/
 ### システム
 
 * [soldair/node-qrcode](https://github.com/soldair/node-qrcode)
-* 本ツールの画像出力機能の参考
+　* 本ツールの画像出力機能の参考
 
 ### デザイン
 * [kzhrknt/awesome-design-md-jp](https://github.com/kzhrknt/awesome-design-md-jp)
