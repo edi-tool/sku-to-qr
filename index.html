@@ -221,13 +221,21 @@ sitemap: false
     </footer>
 
     <script>
+        // 全角数字を半角に変換する関数
+        function normalizeNumber(str) {
+            return str.replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0));
+        }
+
         function generateQRCode() {
-            const sku = document.getElementById("skuInput").value;
+            let sku = document.getElementById("skuInput").value;
             const errorMsg = document.getElementById("errorMsg");
             const qrcodeContainer = document.getElementById("qrcode-container");
             const urlDisplay = document.getElementById("urlDisplay");
             const downloadLink = document.getElementById("downloadLink");
             const downloadBtn = document.getElementById("downloadBtn");
+
+            // 全角数字を半角に正規化
+            sku = normalizeNumber(sku);
 
             // 初期化
             errorMsg.textContent = "";
@@ -237,7 +245,7 @@ sitemap: false
 
             // バリデーション
             if (!/^\d{4}$/.test(sku)) {
-                errorMsg.textContent = "※4桁の半角数字を正しく入力してください。";
+                errorMsg.textContent = "※4桁の数字を正しく入力してください。";
                 return;
             }
 
