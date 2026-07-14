@@ -11,15 +11,33 @@ sitemap: false
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8f6f2">
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" href="favicon.png" type="image/png">
     <title>QRコードさん | {{ page.title }}</title>
     <script src="qrcode.min.js"></script>
     <style>
+        /* ===== 共通デザイントークン（事務ツール5種で統一） ===== */
+        :root {
+            --bg: #f8f6f2;
+            --surface: #fff;
+            --border: #e0e0e0;
+            --text: #0f0f0f;
+            --text-sub: #757575;
+            --accent: #f28c06;
+            --accent-dark: #d97a00;
+            --accent-soft: #fff8f0;
+            --danger: #e53935;
+        }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
         /* Typography & Visual Theme */
         body {
             /* 指定のフォントフォールバックとタイポグラフィ設定 */
-            font-family: noto-sans, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, arial, sans-serif;
+            font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, Roboto, sans-serif;
             background-color: #f8f6f2; /* Background: 温かみのあるオフホワイト */
             color: #0f0f0f; /* Text Primary */
             line-height: 1.5;
@@ -94,7 +112,7 @@ sitemap: false
             font-family: inherit;
         }
         input[type="text"]:focus {
-            border-color: #f28c06; /* Focus時の枠線 */
+            border-color: var(--accent); /* Focus時の枠線 */
         }
 
         /* Buttons Component */
@@ -105,7 +123,7 @@ sitemap: false
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
             font-family: inherit;
             letter-spacing: -0.4px;
             box-sizing: border-box;
@@ -114,13 +132,17 @@ sitemap: false
         
         /* Primary Button */
         .btn-primary {
-            background-color: #f28c06; /* Cookpad Orange */
+            background-color: var(--accent);
             color: #fff;
             border: none;
             margin-top: 8px;
         }
-        .btn-primary:hover { 
-            background-color: #d97a00; /* Cookpad Orange Dark */
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            box-shadow: 0 2px 6px rgba(242, 140, 6, 0.3);
+        }
+        .btn-primary:active {
+            transform: translateY(1px);
         }
 
         /* Secondary Button (Download) */
@@ -164,7 +186,7 @@ sitemap: false
             word-break: break-all;
         }
         .url-display a {
-            color: #f28c06;
+            color: var(--accent);
             text-decoration: none;
         }
         .url-display a:hover {
@@ -202,7 +224,7 @@ sitemap: false
         <span class="subtitle">(東洋館EC用-書籍QRコード作成ツール)</span>
         
         <div class="instruction">4桁のSKUを入力</div>
-        <input type="text" id="skuInput" aria-label="SKU番号（4桁）" placeholder="例: 1234" maxlength="4">
+        <input type="text" id="skuInput" aria-label="SKU番号（4桁）" placeholder="例: 1234" maxlength="4" inputmode="numeric" autocomplete="off" onkeydown="if(event.key==='Enter') generateQRCode()">
         <div id="errorMsg" class="error-msg" role="alert" aria-live="polite"></div>
         
         <button class="btn-primary" onclick="generateQRCode()">QRコードを作成</button>
