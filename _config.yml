@@ -1,0 +1,14 @@
+# GitHub Pages（Jekyll）の設定。社内向けのため noindex（index.html の front matter と meta）。
+
+# 開発用ファイルを公開ビルドから外す（Pages で CLAUDE.md などが配信されないように）
+exclude:
+  - CLAUDE.md
+  - AGENTS.md
+  - DESIGN.md
+  - progress.md
+  - README.md
+  - CHANGELOG.md
+  - package.json
+  - scripts/
+  - tests/
+  - docs/
