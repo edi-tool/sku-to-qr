@@ -1,0 +1,12 @@
+{
+  "name": "sku-to-qr",
+  "private": true,
+  "description": "SKU 番号から商品ページの二次元コードを作成するブラウザツール（社内向け）",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check-static.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
