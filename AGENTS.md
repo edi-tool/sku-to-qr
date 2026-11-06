@@ -1,6 +1,6 @@
 # sku-to-qr
 
-社内用 SKU 番号から EC サイト商品ページの二次元コードを作成するブラウザツール。印刷物（チラシ・POP等）への利用を想定（社内向け・noindex・ハブ未掲載）。
+社内用 SKU 番号から EC サイト商品ページの二次元コードを作成するブラウザツール。印刷物（チラシ・POP等）への利用を想定（社内向け・noindex・ハブには「社内向け」の小さな欄だけに掲載）。
 公開URL: https://edi-tool.github.io/sku-to-qr/ （GitHub Pages）
 共通方針は [edi-tool 開発原則](https://github.com/edi-tool/.github/blob/main/PRINCIPLES.md)。`CLAUDE.md` はこのファイルを取り込むだけなので、エージェント共通の規則はここに書く。
 
@@ -13,7 +13,8 @@
 
 ## 守ること
 
-- 社内向けのため、edi-tool.github.io のハブ・sitemap.xml には載せない。noindex を外さない。
+- 社内向けのため、edi-tool.github.io の sitemap.xml には載せない。ハブにはカードにせず、一覧の下の「社内向け」の小さな欄にだけ載せる。noindex を外さない。
+- 見た目は edi-tool 共通デザイン（edi-tool/.github の `DESIGN.md`）に従う。ファビコンと `ogp.png` はハブの `scripts/ogp/` で作る。
 - 依存は同梱の `qrcode.min.js`（node-qrcode v1.4.4 / MIT）のみ。他のライブラリを追加しない。
 - QR生成プリセット（誤り訂正レベル H、マージン 4、`width: 1600`、モノクロ2階調）は印刷用途の要件。変えたら README の仕様表とテストを同時に更新する。
 - `scripts/check-static.mjs` と `tests/helpers.js` は edi-tool/.github の templates からのコピー。直すときは原本も直す。
